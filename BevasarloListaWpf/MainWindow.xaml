@@ -34,6 +34,11 @@
                     <Button Content="Terméknév + típus" Width="150" Margin="5" Click="termeknevTipusCsoportositas"/>
                     <Button Content="Legértékesebb termék tipusonként + típus" Width="150" Margin="5" Click="LegertekesebbTipusonkent"/>
                     <Button Content="Összesített darabszám típusonként" Width="150" Margin="5" Click="OsszesitettDbTipusonkent"/>
+                    <Button Content="Van 0ft-os termék?" Width="150" Margin="5" Click="nullaFt"/>
+                    <Button Content="Csak kenyerek" Width="150" Margin="5" Click="kenyerek"/>
+                    <Button Content="Megegyező ár" Width="150" Margin="5" Click="egyezoAr" />
+                    <TextBox x:Name="textBox" Width="150" Margin="5" TextChanged="Valtozas"></TextBox>
+                    <Button Content="Egyező termékek" Width="150" Margin="5" Click="egyezo"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

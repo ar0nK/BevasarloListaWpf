@@ -162,5 +162,51 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.GroupBy(f => f.Kategoria).Select(g => new { Kategoria = g.Key, Darab = g.Sum(q => q.Mennyiseg) });
         }
+
+        private void nullaFt(object sender, RoutedEventArgs e)
+        {
+            var nullaFtosTermek = termekek.Any(x => x.Ar == 0);
+
+            if (nullaFtosTermek == false)
+            {
+                MessageBox.Show("Nincs nulla Ft-os termék.");
+            }
+            else
+            {
+                MessageBox.Show("Van nulla Ft-os termék.");
+            }
+        }
+        private void kenyerek(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(x => x.Nev.Contains("Kenyer")).OrderByDescending(c => c.Ar);
+        }
+        private void egyezoAr(object sender, RoutedEventArgs e)
+        {
+            var egyformak = termekek.GroupBy(x => x.Ár)
+                .Select(g => new { darab = g.Count() })
+                .Any(z => z.darab > 1);
+
+            if (egyformak == true)
+            {
+                MessageBox.Show($"Van olyan adataink, amelyeknek megeggyezik az ára!");
+            }
+            else
+            {
+                MessageBox.Show($"Nincs olyan adat amely egy másik adat árával megeggyezne, mind egyedi");
+            }
+        }
+
+        private void Valtozas(object sender, TextChangedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Nev.ToLower().Contains(textBox.Text.ToLower())).ToList();
+        }
+
+        private void egyezo(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek
+                .GroupBy(t => t.Nev)
+                .Where(t => t.Count() > 1)
+                .SelectMany(t => t);
+        }
     } 
 }

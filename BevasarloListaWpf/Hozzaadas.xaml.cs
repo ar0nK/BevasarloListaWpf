@@ -19,9 +19,35 @@ namespace BevasarloListaWpf
     /// </summary>
     public partial class Hozzaadas : Window
     {
+        public ItemModel ujtermek;
         public Hozzaadas()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void ok(object sender, RoutedEventArgs e)
+        {
+            int mennyiseg_ = 0;
+            int ar_ = 0;
+            if(nev.Text==""|| !int.TryParse(mennyiseg.Text,out mennyiseg_)|| !int.TryParse(ar.Text,out ar_) || kategoria.SelectedItem == null)
+            {
+                MessageBox.Show("Nem megfelelő adatok a beviteli mezőkben!","Hiba",MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                ujtermek = new ItemModel(
+                     nev.Text,
+                     int.Parse(mennyiseg.Text),
+                     int.Parse(ar.Text),
+                     kategoria.Text
+                );
+                DialogResult = true;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ namespace BevasarloListaWpf
     /// </summary>
     /// 
 
-    class ItemModel
+    public class ItemModel
     {
         public String Nev {  get; set; }
         public int Mennyiseg { get; set; }
@@ -52,5 +52,15 @@ namespace BevasarloListaWpf
             termekek.Add(new ItemModel("Sajt", 5, 1500, "D"));
             dataGrid.ItemsSource = termekek;
         }
+    }
+    private void hozza_adas(object sender,RoutedEventArgs e)
+    {
+            var ujtermek = new Hozzaadas();
+            if (ujtermek.ShowDialog() == true)
+            {
+                termekek.Add(ujtermek.ujtermek);
+                dataGrid.ItemsSource = termekek;
+                dataGrid.Items.Refresh();
+            }
     }
 }

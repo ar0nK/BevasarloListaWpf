@@ -12,8 +12,12 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="dataGrid"/>
-        <ScrollViewer>
-            
+        <ScrollViewer Grid.Row="1">
+            <GroupBox Header="Termékek" Margin="10">
+                <WrapPanel Margin="5">
+                    <Button Content="Hozzáadaás" Width="150" Margin="5" Click="hozza_adas"/>
+                </WrapPanel>
+            </GroupBox>
         </ScrollViewer>
 
 

@@ -92,5 +92,15 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.OrderByDescending(w => w.Ar);
         }
+
+        private void dTipusNagyobb500(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Kategoria == "D" && t.Ar > 500);
+        }
+
+        private void tobbMint1(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(k => k.Mennyiseg > 1).Select(s => new { Nev = s.Nev, Ar = s.Ar });
+        }
     } 
 }

@@ -20,7 +20,10 @@
                     <Button Content="Törlés" Width="150" Margin="5" Click="torles"/>
                     <Button Content="'A' típus 3 legdrágább" Width="150" Margin="5" Click="aTipus3Draga"/>
                     <Button Content="Top 5 összérték szerint" Width="150" Margin="5" Click="top5"/>
+                    <Button Content="Mennyiség nagyobb mint egy" Width="150" Margin="5" Click="tobbMint1"/>
                     <Button Content="Ár szerint csökkenő" Width="150" Margin="5" Click="arSzerintCsokkeno"/>
+                    <Button Content="D típusű > 500" Width="150" Margin="5" Click="dTipusNagyobb500"/>
+                    <Button Content="Név, összérték ABC" Width="150" Margin="5" Click="dTipusNagyobb500"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

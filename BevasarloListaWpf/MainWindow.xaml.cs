@@ -133,5 +133,18 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.Where(t => t.Kategoria == "B" || t.Kategoria == "C" && t.Ar < 1000);
         }
+
+        private void d500Nagyobb(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(c => c.Ar > 500).GroupBy(x => x.Kategoria).Select(v => new { Kategória = v.Key, TermékekSzáma = v.Count() });
+        }
+        private void kevesebbMint10esKisebb1000(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Mennyiseg > 10 && t.Ar < 1000).OrderBy(t => t.Ar);
+        }
+        private void OsszN2000ABC(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(x => x.Osszesen > 2000).OrderBy(x => x.Nev);
+        }
     } 
 }

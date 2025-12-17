@@ -102,5 +102,20 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.Where(k => k.Mennyiseg > 1).Select(s => new { Nev = s.Nev, Ar = s.Ar });
         }
+
+        private void nevOsszAbc(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource=termekek.Select(d=>new {Név=d.Nev,Összesen=d.Osszesen}).OrderBy(a=>a.Név);
+        }
+
+        private void tipusDbOssz(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderBy(x => x.Nev).GroupBy(d => d.Kategoria).Select(p => new { Típus = p.Key, Darab = p.Sum(s => s.Mennyiseg), Összesen = p.Sum(o => o.Osszesen) });
+        }
+
+        private void tipusAtlagar(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(t => t.Kategoria).Select(g => new { Kategória = g.Key, Átlagár = Math.Round(g.Average(q => q.Ar),2) });
+        }
     } 
 }

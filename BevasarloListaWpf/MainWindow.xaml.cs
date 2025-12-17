@@ -117,5 +117,21 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.GroupBy(t => t.Kategoria).Select(g => new { Kategória = g.Key, Átlagár = Math.Round(g.Average(q => q.Ar),2) });
         }
+
+        
+        private void highestTotalByCategoryBtn(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(t => t.Kategoria).Select(
+            g => new
+            {
+                 Kategória = g.Key,
+                 Összérték = g.Max(g => g.Osszesen)
+            });
+        }
+
+        private void bMegC1000(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Kategoria == "B" || t.Kategoria == "C" && t.Ar < 1000);
+        }
     } 
 }

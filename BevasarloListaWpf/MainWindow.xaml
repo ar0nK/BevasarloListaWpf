@@ -26,6 +26,8 @@
                     <Button Content="Név, összérték ABC" Width="150" Margin="5" Click="nevOsszAbc"/>
                     <Button Content="Típus db + Összérték" Width="150" Margin="5" Click="tipusDbOssz"/>
                     <Button Content="Típus átlagár" Width="150" Margin="5" Click="tipusAtlagar"/>
+                    <Button Content="Legnagyobb összérték kategóriánként" Width="150" Margin="5" Click="highestTotalByCategoryBtn"/>
+                    <Button Content="B + C típus, 1000ft kevesebb" Width="150" Margin="5" Click="bMegC1000"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

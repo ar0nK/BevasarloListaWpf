@@ -18,11 +18,11 @@ namespace BevasarloListaWpf
 
     public class ItemModel
     {
-        public String Nev {  get; set; }
+        public String Nev { get; set; }
         public int Mennyiseg { get; set; }
-        public int Ar {  get; set; }
+        public int Ar { get; set; }
         public string Kategoria { get; set; }
-        public int Osszesen {  get; set; }
+        public int Osszesen { get; set; }
 
         public ItemModel(string nev, int mennyiseg, int ar, string kategoria)
         {
@@ -30,13 +30,13 @@ namespace BevasarloListaWpf
             Mennyiseg = mennyiseg;
             Ar = ar;
             Kategoria = kategoria;
-            Osszesen = mennyiseg*ar;
+            Osszesen = mennyiseg * ar;
         }
     }
 
     public partial class MainWindow : Window
     {
-        List<ItemModel> termekek=new List<ItemModel>();
+        List<ItemModel> termekek = new List<ItemModel>();
         public MainWindow()
         {
             InitializeComponent();
@@ -52,9 +52,9 @@ namespace BevasarloListaWpf
             termekek.Add(new ItemModel("Sajt", 5, 1500, "D"));
             dataGrid.ItemsSource = termekek;
         }
-    }
-    private void hozza_adas(object sender,RoutedEventArgs e)
-    {
+    
+    private void hozza_adas(object sender, RoutedEventArgs e)
+        {
             var ujtermek = new Hozzaadas();
             if (ujtermek.ShowDialog() == true)
             {
@@ -62,5 +62,15 @@ namespace BevasarloListaWpf
                 dataGrid.ItemsSource = termekek;
                 dataGrid.Items.Refresh();
             }
-    }
+        }
+
+        private void torles(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem != null)
+            {
+                termekek.Remove((ItemModel)dataGrid.SelectedItem);
+                dataGrid.Items.Refresh();
+            }
+        }
+    } 
 }

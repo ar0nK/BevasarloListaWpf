@@ -77,5 +77,20 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource=termekek.Where(t=>t.Kategoria=="A").OrderByDescending(t=>t.Osszesen).Take(3);
         }
+
+        private void top5(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource=termekek.OrderByDescending(k=>k.Osszesen).Take(5);
+        }
+
+        private void betoltes(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource=termekek;
+        }
+
+        private void arSzerintCsokkeno(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderByDescending(w => w.Ar);
+        }
     } 
 }

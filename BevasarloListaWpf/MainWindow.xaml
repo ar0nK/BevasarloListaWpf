@@ -15,9 +15,12 @@
         <ScrollViewer Grid.Row="1">
             <GroupBox Header="Termékek" Margin="10">
                 <WrapPanel Margin="5">
+                    <Button Content="Adatok betöltése" Width="150" Margin="5" Click="betoltes"/>
                     <Button Content="Hozzáadaás" Width="150" Margin="5" Click="hozza_adas"/>
                     <Button Content="Törlés" Width="150" Margin="5" Click="torles"/>
                     <Button Content="'A' típus 3 legdrágább" Width="150" Margin="5" Click="aTipus3Draga"/>
+                    <Button Content="Top 5 összérték szerint" Width="150" Margin="5" Click="top5"/>
+                    <Button Content="Ár szerint csökkenő" Width="150" Margin="5" Click="arSzerintCsokkeno"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

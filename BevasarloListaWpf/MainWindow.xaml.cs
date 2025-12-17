@@ -146,5 +146,21 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.Where(x => x.Osszesen > 2000).OrderBy(x => x.Nev);
         }
+        private void termeknevTipusCsoportositas(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(t => new { Nev = t.Nev, Kategoria = t.Kategoria })
+                .Select(x => new { TermekNev = x.Key.Nev, Kategoria = x.Key.Kategoria, Darab = x.Count() });
+        }
+
+
+        private void LegertekesebbTipusonkent(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Kategoria).Select(x => new { Kategoria = x.Key, Ar = x.Max(s => s.Ar) });
+        }
+
+        private void OsszesitettDbTipusonkent(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(f => f.Kategoria).Select(g => new { Kategoria = g.Key, Darab = g.Sum(q => q.Mennyiseg) });
+        }
     } 
 }

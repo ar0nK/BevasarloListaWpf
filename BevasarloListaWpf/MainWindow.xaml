@@ -31,7 +31,9 @@
                     <Button Content="500 felett csoportosítás" Width="150" Margin="5" Click="d500Nagyobb"/>
                     <Button Content="> 10 db és kisebb 1000 Ft" Width="150" Margin="5" Click="kevesebbMint10esKisebb1000"/>
                     <Button Content="> Összérték nagyobb 2000Ft ABC" Width="150" Margin="5" Click="OsszN2000ABC"/>
-                    
+                    <Button Content="Terméknév + típus" Width="150" Margin="5" Click="termeknevTipusCsoportositas"/>
+                    <Button Content="Legértékesebb termék tipusonként + típus" Width="150" Margin="5" Click="LegertekesebbTipusonkent"/>
+                    <Button Content="Összesített darabszám típusonként" Width="150" Margin="5" Click="OsszesitettDbTipusonkent"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

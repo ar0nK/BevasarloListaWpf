@@ -72,5 +72,10 @@ namespace BevasarloListaWpf
                 dataGrid.Items.Refresh();
             }
         }
+
+        private void aTipus3Draga(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource=termekek.Where(t=>t.Kategoria=="A").OrderByDescending(t=>t.Osszesen).Take(3);
+        }
     } 
 }

@@ -17,6 +17,7 @@
                 <WrapPanel Margin="5">
                     <Button Content="Hozzáadaás" Width="150" Margin="5" Click="hozza_adas"/>
                     <Button Content="Törlés" Width="150" Margin="5" Click="torles"/>
+                    <Button Content="'A' típus 3 legdrágább" Width="150" Margin="5" Click="aTipus3Draga"/>
                 </WrapPanel>
             </GroupBox>
         </ScrollViewer>

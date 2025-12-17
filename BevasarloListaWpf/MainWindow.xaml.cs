@@ -162,5 +162,36 @@ namespace BevasarloListaWpf
         {
             dataGrid.ItemsSource = termekek.GroupBy(f => f.Kategoria).Select(g => new { Kategoria = g.Key, Darab = g.Sum(q => q.Mennyiseg) });
         }
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dataGrid.SelectedItem is ItemModel selectedItem)
+            {
+
+                priceProgressBar.Value = selectedItem.Ar;
+            }
+        }
+
+        private void nemc(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Kategoria != "C");
+        }
+
+        private void nevHosszSzerint(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderBy(x => x.Nev.Length);
+        }
+
+        private void aTipusOsszAr(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek
+                .Where(t => t.Kategoria == "A")
+                .OrderBy(t => t.Nev)
+                .Select(t => new
+                {
+                    Kategória = t.Kategoria,
+                    Név = t.Nev,
+                    Összes = t.Osszesen
+                });
+        }
     } 
 }
